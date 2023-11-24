@@ -5,6 +5,10 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import joblib  # Import joblib for model serialization
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.feature_selection import SelectFromModel
+
 
 # Load the dataset
 data_columns = ["Src Port", "Dst Port", "TotLen Fwd Pkts", "Fwd Pkt Len Mean", "Init Fwd Win Byts", "Fwd Seg Size Min", "Label"]
@@ -30,6 +34,8 @@ n_estimators = 50  # You can adjust the number of weak learners (trees)
 clf = AdaBoostClassifier(base_estimator=base_estimator, n_estimators=n_estimators, random_state=42)
 clf.fit(X_train_scaled, y_train)
 
+
+
 # Save the trained model using joblib
 joblib.dump(clf, 'adaboost_model.joblib')
 
@@ -50,3 +56,14 @@ print("Recall:", recall)
 print("F1 Score:", f1)
 print("Confusion Matrix:")
 print(confusion)
+
+
+# features = X_train.columns.values
+# importances = clf.feature_importances_
+# indices = np.argsort(importances)[:-30:-1]
+# plt.figure(figsize=(10,10))
+# plt.title('Feature Importances')
+# plt.barh(range(len(indices)), importances[indices], color='b', align='center')
+# plt.yticks(range(len(indices)), [features[i] for i in indices])
+# plt.xlabel('Relative Importance')
+# plt.show()

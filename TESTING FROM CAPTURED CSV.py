@@ -3,7 +3,7 @@ from sklearn.preprocessing import StandardScaler
 import joblib
 
 # Load the file_to_classify
-file_to_classify = pd.read_csv("C:\\Users\\alexs\\OneDrive\\Escritorio\\aalex\\Alex\\UPTP\\Cuarto Semestre\\Introduction to AI\\Assignment 1.2\\DataSampleTest2.csv", index_col=None)
+file_to_classify = pd.read_csv("C:\\Users\\alexs\\OneDrive\\Escritorio\\aalex\\Alex\\UPTP\\Cuarto Semestre\\Introduction to AI\\PROJECT\CODE\\test5.csv", index_col=None)
 file_to_classify_columns = ["Src Port", "Dst Port", "TotLen Fwd Pkts", "Fwd Pkt Len Mean", "Init Fwd Win Byts", "Fwd Seg Size Min"]
 file_to_classify_dtypes = {"Src Port": int, "Dst Port": int, "TotLen Fwd Pkts": int, "Fwd Pkt Len Mean": float, "Init Fwd Win Byts": int, "Fwd Seg Size Min": int}
 
